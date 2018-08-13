@@ -1,0 +1,43 @@
+
+<html>
+	<head>
+		<title>Rocket Launch Unit Converter</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style type="text/css">
+      body {
+        text-align: center;
+      }
+			table {
+				border-collapse: collapse;
+			}
+			table * {
+				font-size: 20px;
+			}
+			td, th { 
+				padding: 3px;
+				border: 2px solid white;
+			}
+			input[type=text] {
+				width: 4em;
+			}
+		</style>
+		<script type="text/javascript">
+			function convert(outputNum, input, ratio) {
+				var output = (input * ratio).toFixed(2);
+				output = numberWithCommas(output);
+				document.getElementById("out" + outputNum).innerHTML = output;
+			}
+			
+			function numberWithCommas(x) {
+				return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Rocket Launch Unit Converter</h1>
+	  <table>
+			<tr><th>Dumb Unit</th><th>Sensible Unit</th></tr>
+			<tr><td><input type='text' onfocus='this.select();' oninput='convert(0, this.value, 1.60934)'>miles</td><td><span id='out0'>0</span> km</td></tr><tr><td><input type='text' onfocus='this.select();' oninput='convert(1, this.value, 0.3048)'>thousands of feet</td><td><span id='out1'>0</span> km</td></tr><tr><td><input type='text' onfocus='this.select();' oninput='convert(2, this.value, 0.44704)'>mph</td><td><span id='out2'>0</span> m/s</td></tr><tr><td><input type='text' onfocus='this.select();' oninput='convert(3, this.value, 0.277778)'>km/hr</td><td><span id='out3'>0</span> m/s</td></tr><tr><td><input type='text' onfocus='this.select();' oninput='convert(4, this.value, 4.44822)'>lb-force</td><td><span id='out4'>0</span> N</td></tr><tr><td><input type='text' onfocus='this.select();' oninput='convert(5, this.value, 0.453592)'>lb</td><td><span id='out5'>0</span> kg</td></tr>
+    </table>
+	</body>
+</html>
